@@ -7,7 +7,7 @@ export default defineConfig({
   server: {
     proxy: {
       '/api': {
-        target: 'http://localhost:5000', // Backend server
+        target: 'https://ecomprodb.onrender.com', // Backend server
         changeOrigin: true, // Changes the origin of the host header to the target URL
         rewrite: (path) => path.replace(/^\/api/, ''), 
       },
