@@ -81,7 +81,7 @@ const ServicePage = () => {
 
         </div>
       <img
-        src={"http://192.168.0.107:5000" + selectedImage}
+        src={"https://wemprod-b.onrender.com" + selectedImage}
         alt={service.name}
         className="SP-service-image"
       />
