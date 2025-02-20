@@ -4,7 +4,7 @@ import './venueCard.css'; // Optional: Add styles for the card
 const VenueCard = ({ name, price, venueType, image }) => {
   return (
     <div className="venue-card">
-      <img src={"http://192.168.0.107:5000" + image} alt={name} className="venue-card-image" />
+      <img src={"https://ecomprodb.onrender.com" + image} alt={name} className="venue-card-image" />
       <div className="venue-card-details">
         <h3 className="venue-card-name">{name}</h3>
         <p className="venue-card-price">Price: ₹{price}</p>
