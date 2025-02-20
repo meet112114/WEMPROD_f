@@ -17,7 +17,7 @@ const Home = () => {
   useEffect(() => {
     const fetchVenues = async () => {
       try {
-        const res = await fetch('/api/getAllVenue', {
+        const res = await fetch('https://ecomprodb.onrender.com/getAllVenue', {
           method: 'GET',
           credentials: 'include',
         });
