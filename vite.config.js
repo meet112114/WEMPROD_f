@@ -7,7 +7,7 @@ export default defineConfig({
   server: {
     proxy: {
       '/api': {
-        target: 'https://ecomprodb.onrender.com', // Backend server
+        target: 'https://wemprod-b.onrender.com', // Backend server
         changeOrigin: true, // Changes the origin of the host header to the target URL
         rewrite: (path) => path.replace(/^\/api/, ''), 
       },
