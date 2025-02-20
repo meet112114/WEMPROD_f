@@ -15,7 +15,7 @@ const VenueDetails = () => {
   useEffect(() => {
     const fetchVenue = async () => {
       try {
-        const response = await fetch(`/api/get/venueByID/${venueId}` , {
+        const response = await fetch(`https://wemprod-b.onrender.com/get/venueByID/${venueId}` , {
             method:"GET",
             credentials:"include"
         });
@@ -32,7 +32,7 @@ const VenueDetails = () => {
 
     const fetchServices = async () => {
       try {
-        const response = await fetch(`/api/get/serviceById/${venueId}`,{
+        const response = await fetch(`https://wemprod-b.onrender.com/get/serviceById/${venueId}`,{
             method:"GET",
             credentials:"include"
         });
@@ -52,7 +52,7 @@ const VenueDetails = () => {
   // Accept Service
   const acceptService = async (serviceID) => {
     try {
-      await fetch("/api/accept/service", {
+      await fetch("https://wemprod-b.onrender.com/accept/service", {
         method:"POST",
         credentials:"include",
         headers:{
@@ -75,7 +75,7 @@ const VenueDetails = () => {
   // Reject Service
   const rejectService = async (serviceID) => {
     try {
-      await fetch("/api/reject/service",
+      await fetch("https://wemprod-b.onrender.com/reject/service",
          {
             method:"POST",
             credentials:"include",
@@ -105,14 +105,14 @@ const VenueDetails = () => {
           
 
           {/* Main Image Display */}
-          <img src={"http://192.168.0.107:5000" + selectedImage} alt={venue.name} className="venue-image" />
+          <img src={"https://wemprod-b.onrender.com" + selectedImage} alt={venue.name} className="venue-image" />
 
           {/* Image Thumbnail List */}
           <div className="image-list">
             {venue.images.map((img, index) => (
               <img
                 key={index}
-                src={"http://192.168.0.107:5000" + img}
+                src={"https://wemprod-b.onrender.com" + img}
                 alt="Venue Thumbnail"
                 className={`thumbnail ${selectedImage === img ? "selected" : ""}`}
                 onClick={() => setSelectedImage(img)}
@@ -165,7 +165,7 @@ const VenueDetails = () => {
             .map((service) => (
               <div key={service._id} className=" pending-service">
                 <p className="service-name">{service.name}</p>
-                <img src={"http://localhost:5000" + service.images[0]} alt={service.name} className="service-image" />
+                <img src={"https://wemprod-b.onrender.com" + service.images[0]} alt={service.name} className="service-image" />
            
                 <div className="button-group">
                   <button onClick={() => acceptService(service._id)} className="btn btn-accept">

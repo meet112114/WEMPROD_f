@@ -18,7 +18,7 @@ const VenuesC = () => {
   useEffect(() => {
     const fetchVenues = async () => {
       try {
-        const res = await fetch('/api/getAllVenue');
+        const res = await fetch('https://wemprod-b.onrender.com/getAllVenue');
         const data = await res.json();
         setVenues(data);
         setFilteredVenues(data); // Initialize with all venues

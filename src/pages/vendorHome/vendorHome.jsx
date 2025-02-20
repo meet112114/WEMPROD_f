@@ -12,7 +12,7 @@ const VendorHome = () => {
   useEffect(() => {
     const fetchProfile = async () => {
       try {
-        const res = await fetch("/api/get/vendor/profile", {
+        const res = await fetch("https://wemprod-b.onrender.com/get/vendor/profile", {
           method: "GET",
           credentials: "include",
         });
@@ -32,7 +32,7 @@ const VendorHome = () => {
   useEffect(() => {
     const fetchVenues = async () => {
       try {
-        const res = await fetch('/api/get/vendors/venues', {
+        const res = await fetch('https://wemprod-b.onrender.com/get/vendors/venues', {
           method: "GET",
           credentials: "include"
         });
@@ -48,7 +48,7 @@ const VendorHome = () => {
   useEffect(() => {
     const fetchServices = async () => {
       try {
-        const res = await fetch('/api/get/vendors/services', {
+        const res = await fetch('https://wemprod-b.onrender.com/get/vendors/services', {
           method: "GET",
           credentials: "include"
         });
@@ -101,7 +101,7 @@ const VendorHome = () => {
   const handleDeleteService = async (inquiryId) => {
     try {
       const response = await fetch(
-        `/api/deleteServiceInquiry/${profile._id}/${inquiryId}`,
+        `https://wemprod-b.onrender.com/deleteServiceInquiry/${profile._id}/${inquiryId}`,
         { method: "DELETE" }
       );
 

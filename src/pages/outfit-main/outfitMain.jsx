@@ -12,7 +12,7 @@ const OutfitMain = () => {
       id: 1,
       name: 'Maharashtrian',
       desc: 'A beautiful traditional outfit that embodies cultural heritage.',
-      image: 'http://192.168.0.107:5000/assets/outfit/maharashtra-main.png',
+      image: 'https://wemprod-b.onrender.com/assets/outfit/maharashtra-main.png',
       images: [
         'https://example.com/image1-1.jpg',
         'https://example.com/image1-2.jpg',
@@ -24,7 +24,7 @@ const OutfitMain = () => {
         id: 2,
         name: 'Punjabi',
         desc: 'A beautiful traditional outfit that embodies cultural heritage.',
-        image: 'http://192.168.0.107:5000/assets/outfit/punjabi-main.png',
+        image: 'https://wemprod-b.onrender.com/assets/outfit/punjabi-main.png',
         images: [
           'https://example.com/image1-1.jpg',
           'https://example.com/image1-2.jpg',
@@ -36,7 +36,7 @@ const OutfitMain = () => {
         id: 3,
         name: 'Gujrati',
         desc: 'A beautiful traditional outfit that embodies cultural heritage.',
-        image: 'http://192.168.0.107:5000/assets/outfit/gujrati-main.png',
+        image: 'https://wemprod-b.onrender.com/assets/outfit/gujrati-main.png',
         images: [
           'https://example.com/image1-1.jpg',
           'https://example.com/image1-2.jpg',
@@ -48,7 +48,7 @@ const OutfitMain = () => {
         id: 4,
         name: 'Kashmiri',
         desc: 'A beautiful traditional outfit that embodies cultural heritage.',
-        image: 'http://192.168.0.107:5000/assets/outfit/kashmiri-main.png',
+        image: 'https://wemprod-b.onrender.com/assets/outfit/kashmiri-main.png',
         images: [
           'https://example.com/image1-1.jpg',
           'https://example.com/image1-2.jpg',
@@ -60,7 +60,7 @@ const OutfitMain = () => {
         id: 5,
         name: 'South-Indian',
         desc: 'A beautiful traditional outfit that embodies cultural heritage.',
-        image: 'http://192.168.0.107:5000/assets/outfit/south-main.png',
+        image: 'https://wemprod-b.onrender.com/assets/outfit/south-main.png',
         images: [
           'https://example.com/image1-1.jpg',
           'https://example.com/image1-2.jpg',
@@ -72,7 +72,7 @@ const OutfitMain = () => {
         id: 6,
         name: 'Bengali',
         desc: 'A beautiful traditional outfit that embodies cultural heritage.',
-        image:  'http://192.168.0.107:5000/assets/outfit/bengali-main.png',
+        image:  'https://wemprod-b.onrender.com/assets/outfit/bengali-main.png',
         images: [
           'https://example.com/image1-1.jpg',
           'https://example.com/image1-2.jpg',
@@ -84,7 +84,7 @@ const OutfitMain = () => {
         id: 7,
         name: 'Muslim',
         desc: 'A beautiful traditional outfit that embodies cultural heritage.',
-        image:  'http://192.168.0.107:5000/assets/outfit/muslim-main.png',
+        image:  'https://wemprod-b.onrender.com/assets/outfit/muslim-main.png',
         images: [
           'https://example.com/image1-1.jpg',
           'https://example.com/image1-2.jpg',
@@ -96,7 +96,7 @@ const OutfitMain = () => {
         id: 8,
         name: 'Buddhist',
         desc: 'A beautiful traditional outfit that embodies cultural heritage.',
-        image: 'http://192.168.0.107:5000/assets/outfit/buddhist-main.png',
+        image: 'https://wemprod-b.onrender.com/assets/outfit/buddhist-main.png',
         images: [
           'https://example.com/image1-1.jpg',
           'https://example.com/image1-2.jpg',
@@ -108,7 +108,7 @@ const OutfitMain = () => {
         id: 9,
         name: 'Christian',
         desc: 'A beautiful traditional outfit that embodies cultural heritage.',
-        image: 'http://192.168.0.107:5000/assets/outfit/christian-main.png',
+        image: 'https://wemprod-b.onrender.com/assets/outfit/christian-main.png',
         images: [
           'https://example.com/image1-1.jpg',
           'https://example.com/image1-2.jpg',

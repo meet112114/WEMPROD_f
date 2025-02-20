@@ -35,7 +35,7 @@ const Home = () => {
 
     const fetchServices = async () => {
       try {
-        const res = await fetch('/api/getAllService', {
+        const res = await fetch('https://wemprod-b.onrender.com/getAllService', {
           method: 'GET',
           credentials: 'include',
         });

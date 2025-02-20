@@ -28,7 +28,7 @@ const VendorRegister = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const res = await fetch('/api/register/vendor', {
+    const res = await fetch('https://wemprod-b.onrender.com/register/vendor', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

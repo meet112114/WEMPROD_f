@@ -25,7 +25,7 @@ const ServicePage = () => {
 
     const fetchService = async () => {
         try {
-            const res = await fetch(`/api/get/servicesByID/${serviceId}`, {
+            const res = await fetch(`https://wemprod-b.onrender.com/get/servicesByID/${serviceId}`, {
                 method: "GET",
             });
             const data = await res.json();
@@ -49,7 +49,7 @@ const ServicePage = () => {
     setInquiryStatus("Submitting...");
 
     try {
-      const response = await fetch("/api/add/service/inquiry", {
+      const response = await fetch("https://wemprod-b.onrender.com/add/service/inquiry", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ serviceId: serviceId, serviceName: service.name ,   vendorId:service.vendorId , ...inquiry })
@@ -90,7 +90,7 @@ const ServicePage = () => {
         {service.images.map((img, index) => (
           <img
             key={index}
-            src={"http://192.168.0.107:5000" + img}
+            src={"https://wemprod-b.onrender.com" + img}
             alt="SP-Service Thumbnail"
             className="thumbnail"
             onClick={() => setSelectedImage(img)}

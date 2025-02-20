@@ -19,7 +19,7 @@ const ServiceForm = () => {
   useEffect(() => {
     const fetchProfile = async () => {
       try {
-        const res = await fetch("/api/get/vendor/profile", {
+        const res = await fetch("https://wemprod-b.onrender.com/get/vendor/profile", {
           method: "GET",
           credentials: "include", // Important for sending cookies
         });
