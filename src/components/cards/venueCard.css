@@ -59,3 +59,26 @@
     max-height: 200px;
     min-width: 230px; /* Ensures minimum width */
   }
+
+  @media (max-width: 768px) {
+    .venue-card {
+      max-width: 150px;
+      min-width: 150px;
+      min-height: 180px;
+      max-height: 180px;
+    }
+  
+    .venue-card-image {
+      height: 80px;
+    }
+  
+    .venue-card-name {
+      font-size: 1em;
+    }
+  
+    .venue-card-price,
+    .venue-card-type {
+      font-size: 0.9em;
+    }
+  }
+  
