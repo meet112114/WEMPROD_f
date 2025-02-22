@@ -44,3 +44,38 @@
 .nav-link:hover {
     color: #007bff; /* Hover color */
 }
+
+/* Media query for devices with a maximum width of 768px */
+@media (max-width: 768px) {
+  .navbarclass {
+    height: auto; /* Allow the navbar height to adjust automatically */
+    padding: 10px; /* Add padding for better spacing */
+  }
+
+  .navbarclass .navbar-brand {
+    font-size: 1.5rem; /* Adjust brand font size */
+  }
+
+  .navbarclass .nav-link {
+    font-size: 1rem; /* Adjust link font size */
+    padding: 8px 0; /* Adjust padding for better touch targets */
+  }
+
+  .navbarclass .navbar-nav {
+    text-align: center; /* Center-align nav items */
+  }
+
+  .navbarclass .nav-item {
+    margin: 5px 0; /* Add vertical spacing between nav items */
+  }
+
+  .navbar-toggler {
+    font-size: 1.2rem; /* Increase toggle button size */
+    padding: 8px; /* Add padding to the toggle button */
+  }
+
+  .navbar-collapse {
+    background-color: #ffffff; /* Set background color for the collapsed menu */
+    padding: 10px 0; /* Add padding inside the collapsed menu */
+  }
+}
