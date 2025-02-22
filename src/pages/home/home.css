@@ -160,4 +160,141 @@
   }
 
 
+  /* General Mobile Devices */
+@media only screen and (max-width: 480px) {
+    .home-top-img-image {
+      height: 25vh; /* Reduce image height for smaller screens */
+    }
+  
+    .home-C-venue {
+      width: 95%; /* Increase width to utilize more screen space */
+      margin-top: 50px;
+      margin-bottom: 30px;
+    }
+  
+    .home-C-venue-top {
+      flex-direction: column; /* Stack elements vertically */
+      align-items: center;
+    }
+  
+    .home-C-venue-top-text {
+      padding: 10px;
+      height: auto; /* Allow height to adjust based on content */
+    }
+  
+    .top-venue-text-1 {
+      font-size: 40px; /* Adjust font size for readability */
+    }
+  
+    .top-venue-text-2 {
+      font-size: 30px;
+    }
+  
+    .home-C-venue-top-img {
+      padding: 10px;
+      height: auto;
+      width: 100%; /* Ensure image takes full width */
+    }
+  
+    .home-C-venue-top-image-image {
+      height: auto; /* Maintain aspect ratio */
+      border-radius: 10px; /* Slightly reduce border radius */
+    }
+  
+    .home-C-venue-bottom {
+      flex-direction: column; /* Stack venue cards vertically */
+      align-items: center;
+      margin: 20px 0;
+    }
+  
+    .home-C-venue-bottom-button {
+      width: 90%; /* Full-width button */
+      margin: 10px 0;
+      padding: 12px;
+    }
+  
+    .home-services-section {
+      padding: 20px 10px;
+    }
+  
+    .home-services-row {
+      flex-direction: column; /* Stack service cards vertically */
+      align-items: center;
+    }
+  
+    .h1-service {
+      font-size: 24px; /* Adjust heading size */
+    }
+  }
+  
+  /* Tablets and Small Desktops */
+  @media only screen and (min-width: 481px) and (max-width: 1024px) {
+    .home-top-img-image {
+      height: 30vh;
+    }
+  
+    .home-C-venue {
+      width: 90%;
+      margin-top: 70px;
+      margin-bottom: 40px;
+    }
+  
+    .home-C-venue-top {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .home-C-venue-top-text {
+      padding: 15px;
+      height: auto;
+    }
+  
+    .top-venue-text-1 {
+      font-size: 50px;
+    }
+  
+    .top-venue-text-2 {
+      font-size: 40px;
+    }
+  
+    .home-C-venue-top-img {
+      padding: 15px;
+      height: auto;
+      width: 100%;
+    }
+  
+    .home-C-venue-top-image-image {
+      height: auto;
+      border-radius: 15px;
+    }
+  
+    .home-C-venue-bottom {
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 15px;
+      margin: 30px 0;
+    }
+  
+    .home-C-venue-bottom-button {
+      width: 80%;
+      margin: 15px 0;
+      padding: 14px;
+    }
+  
+    .home-services-section {
+      padding: 30px 15px;
+    }
+  
+    .home-services-row {
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 15px;
+    }
+  
+    .h1-service {
+      font-size: 28px;
+    }
+  }
   

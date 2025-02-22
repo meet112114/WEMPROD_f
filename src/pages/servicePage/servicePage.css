@@ -170,3 +170,80 @@
     color: green;
   }
   
+  /* For mobile devices */
+@media only screen and (max-width: 600px) {
+  .SP-service-container {
+    padding: 15px;
+  }
+
+  .SP-service-title-div {
+    margin-bottom: 15px;
+  }
+
+  .SP-venue-title {
+    font-size: 20px;
+  }
+
+  .SP-service-image {
+    max-height: 250px;
+    margin-bottom: 15px;
+  }
+
+  .SP-image-list {
+    gap: 8px;
+  }
+
+  .thumbnail {
+    width: 60px;
+    height: 45px;
+  }
+
+  .SP-service-description {
+    font-size: 14px;
+    padding: 12px;
+  }
+
+  .SP-plans-container {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+
+  .SP-plan-card {
+    padding: 12px;
+  }
+
+  .SP-plan-name {
+    font-size: 16px;
+  }
+
+  .SP-plan-description {
+    font-size: 13px;
+  }
+
+  .SP_plan-price {
+    font-size: 14px;
+  }
+
+  .SP-service-location {
+    font-size: 14px;
+    margin-top: 12px;
+  }
+
+  .SP-inquiry-container {
+    padding: 15px;
+  }
+
+  .SP-inquiry-form input,
+  .SP-inquiry-form textarea {
+    padding: 8px;
+    font-size: 14px;
+  }
+
+  .SP-inquiry-form button {
+    padding: 8px;
+  }
+
+  .inquiry-status {
+    font-size: 14px;
+  }
+}
