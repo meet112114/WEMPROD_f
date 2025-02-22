@@ -59,19 +59,7 @@ const Login = () => {
                 </div>
             </div>
 
-            <div className='google-login'>
-                <a className='google-link' href="http://localhost:5000/auth/google">
-                    <div className='google-button'>
-                        
-                        <img
-                            className="google-img"
-                            src={GoogleIcon}
-                            alt=""
-                        />
-                        <div className='google-text'>Sign In With Google</div>
-                    </div>
-                </a>
-            </div>
+          
             <a className='a-link' href="/register">I am not a member</a>
         </div>
     </>
