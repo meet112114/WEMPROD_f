@@ -40,6 +40,9 @@ const VendorLogin = () => {
             window.alert("email is registered as consumer account");
             console.log("email is registered as consumer account");
         } else if(res.status === 200){
+            const token = data.token; // Extract token
+        localStorage.setItem('jwtoken', token); // Store token in localStorage
+        console.log('Token stored in localStorage:', token);
             dispatch({type:"VENDOR_LOGIN" , payload:true})
             window.alert("Login successful");
             console.log("Login successful");
