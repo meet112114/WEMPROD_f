@@ -11,10 +11,17 @@ const VendorHome = () => {
 
   useEffect(() => {
     const fetchProfile = async () => {
+        const token = localStorage.getItem('jwtoken');
+    console.log(token)
+    if (!token) {
+        throw new Error('No token found, please log in again.');
+    }
       try {
         const res = await fetch("https://wemprod-b.onrender.com/get/vendor/profile", {
           method: "GET",
-          credentials: "include",
+          headers:{
+              'Authorization': `Bearer ${token}` 
+          }
         });
         if (res.status === 200) {
           const data = await res.json();
@@ -83,6 +90,11 @@ const VendorHome = () => {
   };
 
   const handleDeleteVenue = async (inquiryId) => {
+      const token = localStorage.getItem('jwtoken');
+    console.log(token)
+    if (!token) {
+        throw new Error('No token found, please log in again.');
+    }
     try {
       const response = await fetch(
         `/api/deleteVenueInquiry/${profile._id}/${inquiryId}`,
