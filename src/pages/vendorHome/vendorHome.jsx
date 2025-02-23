@@ -66,6 +66,8 @@ const VendorHome = () => {
 
   useEffect(() => {
     const fetchServices = async () => {
+        const token = localStorage.getItem('jwtoken');
+    console.log(token)
       try {
         const res = await fetch('https://wemprod-b.onrender.com/get/vendors/services', {
           method: "GET",
@@ -102,7 +104,7 @@ const VendorHome = () => {
     }
     try {
       const response = await fetch(
-        `/api/deleteVenueInquiry/${profile._id}/${inquiryId}`,
+        `https://wemprod-b.onrender.com/deleteVenueInquiry/${profile._id}/${inquiryId}`,
         { method: "DELETE",
         headers:{
             'Authorization': `Bearer ${token}` 
