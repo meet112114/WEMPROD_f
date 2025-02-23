@@ -15,10 +15,19 @@ const ServiceDetails = () => {
   useEffect(()=>{
 
     const fetchService = async () => {
+      const token = localStorage.getItem('jwtoken');
+    console.log(token)
+    if (!token) {
+        throw new Error('No token found, please log in again.');
+    }
+
         try {
+
             const res = await fetch(`https://wemprod-b.onrender.com/get/servicesByID/${serviceId}`, {
                 method: "GET",
-                credentials: "include"
+                headers:{
+                  'Authorization': `Bearer ${token}` 
+                }
             });
             const data = await res.json();
             setSelectedImage(data.images[0])

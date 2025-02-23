@@ -16,11 +16,18 @@ const EditVenue = () => {
   const tagOptions = ['ac', 'mandap', 'pool', 'lawn', 'resort' ,'outdoor'];
 
     useEffect(() => {
+        const token = localStorage.getItem('jwtoken');
+        console.log(token)
+        if (!token) {
+            throw new Error('No token found, please log in again.');
+        }
         const fetchVenue = async () => {
             try {
                 const res = await fetch(`https://wemprod-b.onrender.com/get/venueByID/${id}`, {
                     method: "GET",
-                    credentials: "include"
+                    headers:{
+                        'Authorization': `Bearer ${token}` 
+                      }
                 });
                 const data = await res.json();
                 setVenue(data);
