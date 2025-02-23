@@ -127,7 +127,7 @@ const ServiceForm = () => {
     }
 
     try {
-      const response = await fetch("/api/add/service", {
+      const response = await fetch("https://wemprod-b.onrender.com/add/service", {
         method: "POST",
         headers:{
           'Authorization': `Bearer ${token}` 
