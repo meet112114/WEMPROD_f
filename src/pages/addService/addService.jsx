@@ -138,12 +138,10 @@ const ServiceForm = () => {
       const result = await response.json();
       if (response.ok) {
         alert("Service added successfully!");
-        setService(name: "",
-    serviceType:"",
-    description: "",
-    images: [],
-    venueList: [],
-    plans: [],)
+        setService( name: "",     serviceType:"",     description: "",
+    images: [],     venueList: [],     plans: [] );
+          setImageFiles([]);
+          
       } else {
         alert(`Error: ${result.message}`);
       }
