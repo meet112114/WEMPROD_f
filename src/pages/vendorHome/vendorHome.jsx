@@ -19,9 +19,12 @@ const VendorHome = () => {
       try {
         const res = await fetch("https://wemprod-b.onrender.com/get/vendor/profile", {
           method: "GET",
-          headers:{
-              'Authorization': `Bearer ${token}` 
-          }
+                headers: {
+        "Authorization": `Bearer ${token}`,
+        "Content-Type": "application/json"
+      },
+
+          credentials:"include"
         });
         if (res.status === 200) {
           const data = await res.json();
