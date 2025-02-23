@@ -69,7 +69,9 @@ const VendorHome = () => {
       try {
         const res = await fetch('https://wemprod-b.onrender.com/get/vendors/services', {
           method: "GET",
-          credentials: "include"
+          headers:{
+            'Authorization': `Bearer ${token}` 
+          }
         });
         const data = await res.json();
         setServices(data);
@@ -101,7 +103,11 @@ const VendorHome = () => {
     try {
       const response = await fetch(
         `/api/deleteVenueInquiry/${profile._id}/${inquiryId}`,
-        { method: "DELETE" }
+        { method: "DELETE",
+        headers:{
+            'Authorization': `Bearer ${token}` 
+          }
+        }
       );
 
       if (!response.ok) {
