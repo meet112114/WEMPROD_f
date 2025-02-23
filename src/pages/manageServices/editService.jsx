@@ -63,11 +63,10 @@ const EditService = () => {
     // Handle plan addition
     const addPlan = () => {
         if (newPlan.planName.trim() && newPlan.description.trim() && newPlan.price) {
-            setPlans([...plans, { ...newPlan, _id: Date.now().toString() }]);
+            setPlans([...plans, { planName: newPlan.planName, description: newPlan.description, price: newPlan.price }]);
             setNewPlan({ planName: '', description: '', price: '' });
         }
     };
-
     // Handle plan removal
     const removePlan = (planId) => {
         setPlans(plans.filter(plan => plan._id !== planId));
