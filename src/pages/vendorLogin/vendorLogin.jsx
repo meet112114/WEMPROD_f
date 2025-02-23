@@ -19,38 +19,46 @@ const VendorLogin = () => {
     });
     }
 
-    const LoginSubmit = async (e) => {
-        e.preventDefault();
-        const res = await fetch('https://wemprod-b.onrender.com/login' , {
-            method:"POST",
-            headers:{
-                "Content-Type" : "application/json"
+   const LoginSubmit = async (e) => {
+    e.preventDefault();
+    try {
+        const res = await fetch('https://wemprod-b.onrender.com/login', {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
             },
             body: JSON.stringify(LoginformData)
         });
-        
-        const data = await res.json();
-        console.log(data)
 
-        if(res.status === 400 || !data){
-            console.log("invalid credenials");
-        }else if (res.status === 401){
-            console.log("account linked with google");
-        }else if(res.status === 403){
-            window.alert("email is registered as consumer account");
-            console.log("email is registered as consumer account");
-        } else if(res.status === 200){
-            const token = data.token; // Extract token
-        localStorage.setItem('jwtoken', token); // Store token in localStorage
-        console.log('Token stored in localStorage:', token);
-            dispatch({type:"VENDOR_LOGIN" , payload:true})
-            window.alert("Login successful");
-            console.log("Login successful");
-            navigate('/vendorHome')
-        }else{
-            console.log('error')
+        const data = await res.json();
+        console.log("Full response data:", data); // 🔍 Log full response
+
+        if (!data || !data.token) {
+            console.error("Error: Token not found in response.");
         }
+
+        if (res.status === 400) {
+            console.log("Invalid credentials");
+        } else if (res.status === 401) {
+            console.log("Account linked with Google");
+        } else if (res.status === 403) {
+            window.alert("Email is registered as a consumer account");
+            console.log("Email is registered as a consumer account");
+        } else if (res.status === 200 && data.token) {
+            console.log("Extracted Token:", data.token); // 🔍 Log extracted token
+            localStorage.setItem('jwtoken', data.token);
+            console.log('Token stored in localStorage:', localStorage.getItem('jwtoken'));
+            dispatch({ type: "VENDOR_LOGIN", payload: true });
+            window.alert("Login successful");
+            navigate('/vendorHome');
+        } else {
+            console.log('Error');
+        }
+    } catch (error) {
+        console.error("Error during login:", error);
     }
+};
+
 
   return (
     <>
