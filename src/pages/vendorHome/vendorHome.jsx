@@ -31,10 +31,19 @@ const VendorHome = () => {
 
   useEffect(() => {
     const fetchVenues = async () => {
+
+    const token = localStorage.getItem('jwtoken');
+    console.log(token)
+    if (!token) {
+        throw new Error('No token found, please log in again.');
+    }
+
       try {
         const res = await fetch('https://wemprod-b.onrender.com/get/vendors/venues', {
           method: "GET",
-          credentials: "include"
+          headers:{
+            'Authorization': `Bearer ${token}` 
+          }
         });
         const data = await res.json();
         setVenues(data);
