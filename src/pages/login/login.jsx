@@ -38,13 +38,13 @@ const Login = () => {
             window.alert("email is registered as vendor account");
             console.log("email is registered as vendor account");
         }else if(res.status === 200){
-            const token = data.token; // Extract token
-            localStorage.setItem('jwtoken', token);  // Store token in localStorage
-            console.log('Token stored in localStorage:', token);
-            dispatch({type:"USER_LOGIN" , payload:true})
-            window.alert("Login successful");
-            console.log("Login successful");
-            navigate('/')
+const token = data.token; // Extract token
+        localStorage.setItem('jwtoken', token); // Store token in localStorage
+        console.log('Token stored in localStorage:', token);
+        dispatch({ type: "USER_LOGIN", payload: true });
+        window.alert("Login successful");
+        console.log("Login successful");
+        navigate('/');
         }else{
             console.log('error')
         }
