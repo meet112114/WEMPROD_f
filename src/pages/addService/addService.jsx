@@ -55,7 +55,7 @@ const ServiceForm = () => {
 
       const fetchVenues = async () => {
         try {
-          const res = await fetch(`/api/get/venue/${profile.location}`);
+          const res = await fetch(`https://wemprod-b.onrender.com/get/venue/${profile.location}`);
           const data = await res.json();
           setVenues(data);
         } catch (error) {
