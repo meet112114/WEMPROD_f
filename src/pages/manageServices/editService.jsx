@@ -92,10 +92,18 @@ const EditService = () => {
         // Append new images
         newImages.forEach(file => formData.append("images", file));
 
+        const token = localStorage.getItem('jwtoken');
+        console.log(token)
+        if (!token) {
+            throw new Error('No token found, please log in again.');
+        }
+
         try {
             const res = await fetch('https://wemprod-b.onrender.com/edit/service', {
                 method: "PUT",
-                credentials: "include",
+                headers:{
+                    'Authorization': `Bearer ${token}` 
+                  },
                 body: formData,
             });
 
