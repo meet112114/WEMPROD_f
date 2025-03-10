@@ -8,7 +8,8 @@ const UserBookings = () => {
   const  {state , dispatch} = useContext( UserContext);
   const [bookings, setBookings] = useState([]);
   const [loading, setLoading] = useState(true);
-  const token = localStorage.getItem('jwtoken');
+      const token = localStorage.getItem('jwtoken');
+  
 
   useEffect(() => {
     if (state.user) {
@@ -16,6 +17,7 @@ const UserBookings = () => {
     }
   }, [state.user]);
   const fetchBookings = async () => {
+    const token = localStorage.getItem('jwtoken');
     try {
       const [venueResponse, serviceResponse] = await Promise.all([
         fetch(`https://wemprod-b.onrender.com/bookings/user`, { method: "GET" , headers:{
@@ -58,6 +60,7 @@ const UserBookings = () => {
         const res = await fetch("https://wemprod-b.onrender.com/checkout", { 
             method: "POST",
             headers: {
+              'Authorization': `Bearer ${token}` ,
                 'Content-Type': 'application/json'
             },
             credentials: "include",
@@ -86,7 +89,7 @@ const UserBookings = () => {
   {loading ? (
     <p>Loading bookings...</p>
   ) : bookings.length === 0 ? (
-    <p>No bookings found.</p>
+    <p>No bookings found {token}.</p>
   ) : (
     <div className="bookings-list">
       {/* Show Venue Bookings First */}
