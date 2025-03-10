@@ -60,6 +60,7 @@ const UserBookings = () => {
         const res = await fetch("https://wemprod-b.onrender.com/checkout", { 
             method: "POST",
             headers: {
+              'Authorization': `Bearer ${token}` ,
                 'Content-Type': 'application/json'
             },
             credentials: "include",
