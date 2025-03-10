@@ -12,10 +12,21 @@ const VendorHome = () => {
 
   useEffect(() => {
     const fetchProfile = async () => {
+        const token = localStorage.getItem('jwtoken');
+    console.log(token)
+    if (!token) {
+        throw new Error('No token found, please log in again.');
+    }
       try {
         const res = await fetch("https://wemprod-b.onrender.com/get/vendor/profile", {
+        const res = await fetch("https://wemprod-b.onrender.com/get/vendor/profile", {
           method: "GET",
-          credentials: "include",
+                headers: {
+        "Authorization": `Bearer ${token}`,
+        "Content-Type": "application/json"
+      },
+
+          credentials:"include"
         });
         if (res.status === 200) {
           const data = await res.json();
@@ -32,6 +43,13 @@ const VendorHome = () => {
 
   useEffect(() => {
     const fetchVenues = async () => {
+
+    const token = localStorage.getItem('jwtoken');
+    console.log(token)
+    if (!token) {
+        throw new Error('No token found, please log in again.');
+    }
+
       try {
         const res = await fetch("https://wemprod-b.onrender.com/get/vendors/venues", {
           method: "GET",
@@ -48,6 +66,8 @@ const VendorHome = () => {
 
   useEffect(() => {
     const fetchServices = async () => {
+        const token = localStorage.getItem('jwtoken');
+    console.log(token)
       try {
         const res = await fetch("https://wemprod-b.onrender.com/get/vendors/services", {
           method: "GET",
@@ -109,6 +129,11 @@ const VendorHome = () => {
   };
 
   const handleDeleteVenue = async (inquiryId) => {
+      const token = localStorage.getItem('jwtoken');
+    console.log(token)
+    if (!token) {
+        throw new Error('No token found, please log in again.');
+    }
     try {
       const response = await fetch(
         `httapips://wemprod-b.onrender.com/deleteVenueInquiry/${profile._id}/${inquiryId}`,
@@ -137,6 +162,7 @@ const VendorHome = () => {
   const handleDeleteService = async (inquiryId) => {
     try {
       const response = await fetch(
+        `https://wemprod-b.onrender.com/deleteServiceInquiry/${profile._id}/${inquiryId}`,
         `https://wemprod-b.onrender.com/deleteServiceInquiry/${profile._id}/${inquiryId}`,
         { method: "DELETE" }
       );

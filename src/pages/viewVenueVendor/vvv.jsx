@@ -13,11 +13,18 @@ const VenueDetails = () => {
 
   // Fetch Venue Data
   useEffect(() => {
+    const token = localStorage.getItem('jwtoken');
+    console.log(token)
+    if (!token) {
+        throw new Error('No token found, please log in again.');
+    }
     const fetchVenue = async () => {
       try {
         const response = await fetch(`https://wemprod-b.onrender.com/get/venueByID/${venueId}` , {
             method:"GET",
-            credentials:"include"
+            headers:{
+              'Authorization': `Bearer ${token}` 
+            }
         });
         const data = await response.json()
         console.log(data)
@@ -31,10 +38,17 @@ const VenueDetails = () => {
     };
 
     const fetchServices = async () => {
+      const token = localStorage.getItem('jwtoken');
+      console.log(token)
+      if (!token) {
+          throw new Error('No token found, please log in again.');
+      }
       try {
         const response = await fetch(`https://wemprod-b.onrender.com/get/serviceById/${venueId}`,{
             method:"GET",
-            credentials:"include"
+            headers:{
+              'Authorization': `Bearer ${token}` 
+            }
         });
         const data = await response.json()
         console.log(data)
@@ -51,11 +65,16 @@ const VenueDetails = () => {
 
   // Accept Service
   const acceptService = async (serviceID) => {
+    const token = localStorage.getItem('jwtoken');
+    console.log(token)
+    if (!token) {
+        throw new Error('No token found, please log in again.');
+    }
     try {
       await fetch("https://wemprod-b.onrender.com/accept/service", {
         method:"POST",
-        credentials:"include",
         headers:{
+          'Authorization': `Bearer ${token}` ,
             "Content-Type" : "application/json"
         },
         body: JSON.stringify({venueId , serviceID})
@@ -74,14 +93,19 @@ const VenueDetails = () => {
 
   // Reject Service
   const rejectService = async (serviceID) => {
+    const token = localStorage.getItem('jwtoken');
+    console.log(token)
+    if (!token) {
+        throw new Error('No token found, please log in again.');
+    }
     try {
       await fetch("https://wemprod-b.onrender.com/reject/service",
          {
             method:"POST",
-            credentials:"include",
-        headers:{
-            "Content-Type" : "application/json"
-        },
+            headers:{
+              'Authorization': `Bearer ${token}` ,
+                "Content-Type" : "application/json"
+            },
         body: JSON.stringify({venueId , serviceID})
              });
       setServices((prev) => prev.filter((s) => s._id !== serviceID));
@@ -165,7 +189,7 @@ const VenueDetails = () => {
             .map((service) => (
               <div key={service._id} className=" pending-service">
                 <p className="service-name">{service.name}</p>
-                <img src={"http://localhost:5000" + service.images[0]} alt={service.name} className="service-image" />
+                <img src={"https://wemprod-b.onrender.com" + service.images[0]} alt={service.name} className="service-image" />
            
                 <div className="button-group">
                   <button onClick={() => acceptService(service._id)} className="btn btn-accept">

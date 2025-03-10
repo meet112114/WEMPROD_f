@@ -15,10 +15,18 @@ const ServiceDetails = () => {
   useEffect(()=>{
 
     const fetchService = async () => {
+      const token = localStorage.getItem('jwtoken');
+    console.log(token)
+    if (!token) {
+        throw new Error('No token found, please log in again.');
+    }
+
         try {
             const res = await fetch(`https://wemprod-b.onrender.com/get/servicesByID/${serviceId}`, {
                 method: "GET",
-                credentials: "include"
+                headers:{
+                  'Authorization': `Bearer ${token}` 
+                }
             });
             const data = await res.json();
             setSelectedImage(data.images[0])
@@ -49,6 +57,7 @@ const ServiceDetails = () => {
       {/* Main Image Display */}
       <img
         src={"https://wemprod-b.onrender.com" + selectedImage}
+        src={"https://wemprod-b.onrender.com" + selectedImage}
         alt={service.name}
         className="service-image-s"
       />
@@ -58,6 +67,7 @@ const ServiceDetails = () => {
         {service.images.map((img, index) => (
           <img
             key={index}
+            src={"https://wemprod-b.onrender.com" + img}
             src={"https://wemprod-b.onrender.com" + img}
             alt="Service Thumbnail"
             className="thumbnail"

@@ -13,11 +13,18 @@ const EditService = () => {
     const [loader, setLoader] = useState(true);
 
     useEffect(() => {
+        const token = localStorage.getItem('jwtoken');
+        console.log(token)
+        if (!token) {
+            throw new Error('No token found, please log in again.');
+        }
         const fetchService = async () => {
             try {
                 const res = await fetch(`https://wemprod-b.onrender.com/get/servicesByID/${id}`, {
                     method: "GET",
-                    credentials: "include"
+                    headers:{
+                        'Authorization': `Bearer ${token}` 
+                      }
                 });
                 const data = await res.json();
                 setService(data);
@@ -56,11 +63,10 @@ const EditService = () => {
     // Handle plan addition
     const addPlan = () => {
         if (newPlan.planName.trim() && newPlan.description.trim() && newPlan.price) {
-            setPlans([...plans, { ...newPlan, _id: Date.now().toString() }]);
+            setPlans([...plans, { planName: newPlan.planName, description: newPlan.description, price: newPlan.price }]);
             setNewPlan({ planName: '', description: '', price: '' });
         }
     };
-
     // Handle plan removal
     const removePlan = (planId) => {
         setPlans(plans.filter(plan => plan._id !== planId));
@@ -85,10 +91,18 @@ const EditService = () => {
         // Append new images
         newImages.forEach(file => formData.append("images", file));
 
+        const token = localStorage.getItem('jwtoken');
+        console.log(token)
+        if (!token) {
+            throw new Error('No token found, please log in again.');
+        }
+
         try {
             const res = await fetch('https://wemprod-b.onrender.com/edit/service', {
                 method: "PUT",
-                credentials: "include",
+                headers:{
+                    'Authorization': `Bearer ${token}` 
+                  },
                 body: formData,
             });
 

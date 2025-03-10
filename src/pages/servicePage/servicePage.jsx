@@ -63,6 +63,7 @@ const ServicePage = () => {
 
     try {
       const response = await fetch("https://wemprod-b.onrender.com/add/service/inquiry", {
+      const response = await fetch("https://wemprod-b.onrender.com/add/service/inquiry", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -154,6 +155,7 @@ const ServicePage = () => {
         <h2 className="SP-venue-title">{'Service Name: ' + service.name}</h2>
       </div>
       <img
+        src={"https://wemprod-b.onrender.com" + selectedImage}
         src={"https://wemprod-b.onrender.com" + selectedImage}
         alt={service.name}
         className="SP-service-image"

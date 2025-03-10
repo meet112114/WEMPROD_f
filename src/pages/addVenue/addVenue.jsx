@@ -49,9 +49,18 @@ const AddVenue = () => {
       }
     });
 
+    const token = localStorage.getItem('jwtoken');
+    console.log(token)
+    if (!token) {
+        throw new Error('No token found, please log in again.');
+    }
+
     try {
       const response = await fetch('https://wemprod-b.onrender.com/add/venue', {
         method: 'POST',
+        headers:{
+          'Authorization': `Bearer ${token}` 
+        },
         body: formData
       });
       

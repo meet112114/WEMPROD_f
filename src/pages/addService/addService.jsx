@@ -17,11 +17,21 @@ const ServiceForm = () => {
   const [profile, setProfile] = useState('');
 
   useEffect(() => {
+
+
     const fetchProfile = async () => {
+      const token = localStorage.getItem('jwtoken');
+      console.log(token)
+      if (!token) {
+          throw new Error('No token found, please log in again.');
+      }
+  
       try {
         const res = await fetch("https://wemprod-b.onrender.com/get/vendor/profile", {
           method: "GET",
-          credentials: "include", // Important for sending cookies
+          headers:{
+            'Authorization': `Bearer ${token}` 
+          }
         });
 
         if (res.status === 200) {
@@ -41,6 +51,8 @@ const ServiceForm = () => {
   },[])
 
    useEffect(() => {
+
+
       const fetchVenues = async () => {
         try {
           const res = await fetch(`https://wemprod-b.onrender.com/get/venue/${profile.location}`);
@@ -108,15 +120,28 @@ const ServiceForm = () => {
       formData.append("images", file);
     });
   
+    const token = localStorage.getItem('jwtoken');
+    console.log(token)
+    if (!token) {
+        throw new Error('No token found, please log in again.');
+    }
+
     try {
       const response = await fetch("https://wemprod-b.onrender.com/add/service", {
         method: "POST",
+        headers:{
+          'Authorization': `Bearer ${token}` 
+        },
         body: formData,
       });
   
       const result = await response.json();
       if (response.ok) {
         alert("Service added successfully!");
+        setService({ name: "",     serviceType:"",     description: "",
+    images: [],     venueList: [],     plans: [] });
+          setImageFiles([]);
+          
       } else {
         alert(`Error: ${result.message}`);
       }
