@@ -33,6 +33,8 @@ const Login = () => {
       });
 
       const data = await res.json();
+      const token = data.token; // Extract token
+        localStorage.setItem('jwtoken', token);
 
       if (res.status === 400) {
         setErrorMessage("⚠ All fields are required.");

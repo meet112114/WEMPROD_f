@@ -8,6 +8,7 @@ const UserBookings = () => {
   const  {state , dispatch} = useContext( UserContext);
   const [bookings, setBookings] = useState([]);
   const [loading, setLoading] = useState(true);
+  const token = localStorage.getItem('jwtoken');
 
   useEffect(() => {
     if (state.user) {
@@ -17,8 +18,12 @@ const UserBookings = () => {
   const fetchBookings = async () => {
     try {
       const [venueResponse, serviceResponse] = await Promise.all([
-        fetch(`https://wemprod-b.onrender.com/bookings/user`, { method: "GET", credentials: "include" }),
-        fetch(`https://wemprod-b.onrender.com/bookingsSer/user`, { method: "GET", credentials: "include" })
+        fetch(`https://wemprod-b.onrender.com/bookings/user`, { method: "GET" , headers:{
+          'Authorization': `Bearer ${token}` 
+        }, }),
+        fetch(`https://wemprod-b.onrender.com/bookingsSer/user`, { method: "GET", headers:{
+          'Authorization': `Bearer ${token}` 
+        },})
       ]);
   
       const venueBookings = await venueResponse.json();
