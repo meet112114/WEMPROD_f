@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import VenueCard from '../../components/cards/venueCard';
 import './venuesC.css';
 import { useNavigate } from 'react-router-dom';
+import CitySelector from "../../components/locationCard/locationCard";
 
 const VenuesC = () => {
   const navigate = useNavigate();
@@ -133,6 +134,7 @@ const VenuesC = () => {
 
       {/* Venue List */}
       <div className="venueC-list">
+        <CitySelector/>
         {filteredVenues.length > 0 ? (
           filteredVenues.map((venue) => (
             <div key={venue._id} onClick={() => navigate(`/venuePage/${venue._id}`)}>

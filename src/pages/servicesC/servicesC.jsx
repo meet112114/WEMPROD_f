@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import ServiceTypeCard from '../../components/cards/ServiceTypeCard';
 import './servicesC.css';
 import { useNavigate } from 'react-router-dom';
+import CitySelector from "../../components/locationCard/locationCard";
 
 const ServicesC = () => {
   const navigate = useNavigate();
@@ -118,6 +119,7 @@ const ServicesC = () => {
 
       {/* Services List */}
       <div className="servicesC-list">
+      <CitySelector/>
         {filteredServices.length > 0 ? (
           filteredServices.map((service) => (
             <div key={service._id} onClick={() => navigate(`/servicePage/${service._id}`)}>
