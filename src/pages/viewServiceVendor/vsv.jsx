@@ -57,7 +57,6 @@ const ServiceDetails = () => {
       {/* Main Image Display */}
       <img
         src={"https://wemprod-b.onrender.com" + selectedImage}
-        src={"https://wemprod-b.onrender.com" + selectedImage}
         alt={service.name}
         className="service-image-s"
       />
@@ -67,7 +66,6 @@ const ServiceDetails = () => {
         {service.images.map((img, index) => (
           <img
             key={index}
-            src={"https://wemprod-b.onrender.com" + img}
             src={"https://wemprod-b.onrender.com" + img}
             alt="Service Thumbnail"
             className="thumbnail"

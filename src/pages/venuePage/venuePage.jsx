@@ -39,25 +39,25 @@ const VenuePage = () => {
       try {
         console.log(id);
         const response = await fetch(`https://wemprod-b.onrender.com/get/venueByID/${id}`, {
-        const response = await fetch(`https://wemprod-b.onrender.com/get/venueByID/${id}`, {
-          method: "GET"
+          method: "GET",
         });
-        
+  
         const data = await response.json();
         console.log(data);
         setVenue(data);
         setLoading(false);
-        setSelectedImage(data.images[0]);
+        if (data.images && data.images.length > 0) {
+          setSelectedImage(data.images[0]);
+        }
       } catch (error) {
         console.error("Error fetching venue:", error);
       }
     };
-
+  
     const fetchServices = async () => {
       try {
         const response = await fetch(`https://wemprod-b.onrender.com/get/serviceById/${id}`, {
-        const response = await fetch(`https://wemprod-b.onrender.com/get/serviceById/${id}`, {
-          method: "GET"
+          method: "GET",
         });
         const data = await response.json();
         console.log(data);
@@ -66,11 +66,12 @@ const VenuePage = () => {
         console.error("Error fetching services:", error);
       }
     };
-
+  
     fetchVenue();
     fetchServices();
-  }, [id]);
-
+  }, [id]); // Ensures the effect runs when `id` changes
+  
+  
   const handleInputChange = (e) => {
     setInquiry({ ...inquiry, [e.target.name]: e.target.value });
   };
@@ -80,7 +81,6 @@ const VenuePage = () => {
     setInquiryStatus("Submitting...");
 
     try {
-      const response = await fetch("https://wemprod-b.onrender.com/add/venue/inquiry", {
       const response = await fetch("https://wemprod-b.onrender.com/add/venue/inquiry", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -164,13 +164,11 @@ const VenuePage = () => {
           </div>
 
           <img src={"https://wemprod-b.onrender.com" + selectedImage} alt={venue.name} className="venue-image" />
-          <img src={"https://wemprod-b.onrender.com" + selectedImage} alt={venue.name} className="venue-image" />
 
           <div className="VP-image-list">
             {venue.images.map((img, index) => (
               <img
                 key={index}
-                src={"https://wemprod-b.onrender.com" + img}
                 src={"https://wemprod-b.onrender.com" + img}
                 alt="Venue Thumbnail"
                 className={`VP-thumbnail ${selectedImage === img ? "selected" : ""}`}
