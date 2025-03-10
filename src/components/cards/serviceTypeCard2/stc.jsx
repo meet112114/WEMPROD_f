@@ -7,7 +7,7 @@ const ServiceTypeCard2 = ({ name, vendorName, image  , price ,description}) => {
   return (
     <div className="Service-card">
       <div>
-      <img src={"http://localhost:5000"+image} alt={name} className="Service-card-image" />
+      <img src={"https://wemprod-b.onrender.com"+image} alt={name} className="Service-card-image" />
       </div>
       <div>
       <div className="Service-card-info">

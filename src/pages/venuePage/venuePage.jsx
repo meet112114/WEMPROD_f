@@ -38,7 +38,7 @@ const VenuePage = () => {
     const fetchVenue = async () => {
       try {
         console.log(id);
-        const response = await fetch(`/api/get/venueByID/${id}`, {
+        const response = await fetch(`https://wemprod-b.onrender.com/get/venueByID/${id}`, {
           method: "GET"
         });
         const data = await response.json();
@@ -53,7 +53,7 @@ const VenuePage = () => {
 
     const fetchServices = async () => {
       try {
-        const response = await fetch(`/api/get/serviceById/${id}`, {
+        const response = await fetch(`https://wemprod-b.onrender.com/get/serviceById/${id}`, {
           method: "GET"
         });
         const data = await response.json();
@@ -77,7 +77,7 @@ const VenuePage = () => {
     setInquiryStatus("Submitting...");
 
     try {
-      const response = await fetch("/api/add/venue/inquiry", {
+      const response = await fetch("https://wemprod-b.onrender.com/add/venue/inquiry", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ venueId: id, venueName:venue.name , vendorId:venue.vendorId , ...inquiry })
@@ -116,7 +116,7 @@ const VenuePage = () => {
     }
   
     try {
-      const response = await fetch("/api/add/booking/venue", {
+      const response = await fetch("https://wemprod-b.onrender.com/add/booking/venue", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -159,13 +159,13 @@ const VenuePage = () => {
             <h1 className="venue-title">{ venue.name}</h1>
           </div>
 
-          <img src={"http://localhost:5000" + selectedImage} alt={venue.name} className="venue-image" />
+          <img src={"https://wemprod-b.onrender.com" + selectedImage} alt={venue.name} className="venue-image" />
 
           <div className="VP-image-list">
             {venue.images.map((img, index) => (
               <img
                 key={index}
-                src={"http://localhost:5000" + img}
+                src={"https://wemprod-b.onrender.com" + img}
                 alt="Venue Thumbnail"
                 className={`VP-thumbnail ${selectedImage === img ? "selected" : ""}`}
                 onClick={() => setSelectedImage(img)}

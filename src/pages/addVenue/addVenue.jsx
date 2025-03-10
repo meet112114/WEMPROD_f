@@ -50,7 +50,7 @@ const AddVenue = () => {
     });
 
     try {
-      const response = await fetch('/api/add/venue', {
+      const response = await fetch('https://wemprod-b.onrender.com/add/venue', {
         method: 'POST',
         body: formData
       });

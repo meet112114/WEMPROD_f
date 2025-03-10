@@ -9,7 +9,7 @@ const Logout = () => {
   useEffect(() => {
     const handleLogout = async () => {
       try {
-        const res = await fetch('/api/logout', {
+        const res = await fetch('https://wemprod-b.onrender.com/logout', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json'

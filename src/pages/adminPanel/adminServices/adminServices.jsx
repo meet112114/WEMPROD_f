@@ -10,7 +10,7 @@ const AdminService = () => {
 
     const fetchData = async () => {
         try {
-            const res = await fetch('/api/admin/services', { method: "GET" });
+            const res = await fetch('https://wemprod-b.onrender.com/admin/services', { method: "GET" });
 
             if (!res.ok) {
                 throw new Error("Failed to fetch services");
@@ -30,7 +30,7 @@ const AdminService = () => {
         }
 
         try {
-            const res = await fetch(`/api/admin/service/${serviceId}`, {
+            const res = await fetch(`https://wemprod-b.onrender.com/admin/service/${serviceId}`, {
                 method: "DELETE",
             });
 
@@ -51,7 +51,7 @@ const AdminService = () => {
     // Function to accept a service
     const acceptService = async (serviceId) => {
         try {
-            const res = await fetch(`/api/admin/service/accept/${serviceId}`, {
+            const res = await fetch(`https://wemprod-b.onrender.com/admin/service/accept/${serviceId}`, {
                 method: "PUT",
                 headers: {
                     "Content-Type": "application/json",

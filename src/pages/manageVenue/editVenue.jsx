@@ -18,7 +18,7 @@ const EditVenue = () => {
     useEffect(() => {
         const fetchVenue = async () => {
             try {
-                const res = await fetch(`/api/get/venueByID/${id}`, {
+                const res = await fetch(`https://wemprod-b.onrender.com/get/venueByID/${id}`, {
                     method: "GET",
                     credentials: "include"
                 });
@@ -94,7 +94,7 @@ const EditVenue = () => {
         newImages.forEach(file => formData.append("images", file));
 
         try {
-            const res = await fetch('/api/edit/venue', {
+            const res = await fetch('https://wemprod-b.onrender.com/edit/venue', {
                 method: "PUT",
                 credentials: "include",
                 body: formData,
@@ -157,7 +157,7 @@ const EditVenue = () => {
             <div className="image-container">
                 {venue.images && venue.images.map((imageUrl, index) => (
                     <div key={index} className="image-box">
-                        <img src={"http://192.168.0.107:5000"+imageUrl} alt="venue" className="image-preview" />
+                        <img src={"https://wemprod-b.onrender.com"+imageUrl} alt="venue" className="image-preview" />
                         <button type="button" onClick={() => handleRemoveImage(imageUrl)}>Remove</button>
                     </div>
                 ))}

@@ -36,7 +36,7 @@ const ServicePage = () => {
   useEffect(() => {
     const fetchService = async () => {
       try {
-        const res = await fetch(`/api/get/servicesByID/${serviceId}`, {
+        const res = await fetch(`https://wemprod-b.onrender.com/get/servicesByID/${serviceId}`, {
           method: "GET"
         });
         const data = await res.json();
@@ -62,7 +62,7 @@ const ServicePage = () => {
     setInquiryStatus("Submitting...");
 
     try {
-      const response = await fetch("/api/add/service/inquiry", {
+      const response = await fetch("https://wemprod-b.onrender.com/add/service/inquiry", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -108,7 +108,7 @@ const ServicePage = () => {
     }
 
     try {
-      const response = await fetch("/api/add/booking/service", {
+      const response = await fetch("https://wemprod-b.onrender.com/add/booking/service", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         credentials:"include",
@@ -154,7 +154,7 @@ const ServicePage = () => {
         <h2 className="SP-venue-title">{'Service Name: ' + service.name}</h2>
       </div>
       <img
-        src={"http://localhost:5000" + selectedImage}
+        src={"https://wemprod-b.onrender.com" + selectedImage}
         alt={service.name}
         className="SP-service-image"
       />
@@ -162,7 +162,7 @@ const ServicePage = () => {
         {service.images.map((img, index) => (
           <img
             key={index}
-            src={"http://localhost:5000" + img}
+            src={"https://wemprod-b.onrender.com" + img}
             alt="Service Thumbnail"
             className="thumbnail"
             onClick={() => setSelectedImage(img)}

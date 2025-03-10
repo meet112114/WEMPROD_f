@@ -15,7 +15,7 @@ const ServicesC = () => {
   useEffect(() => {
     const fetchServices = async () => {
       try {
-        const res = await fetch('/api/getAllService'); 
+        const res = await fetch('https://wemprod-b.onrender.com/getAllService'); 
         const data = await res.json();
         const acceptedServices = data.filter(service => service.status === "accepted");
         setServices(acceptedServices);

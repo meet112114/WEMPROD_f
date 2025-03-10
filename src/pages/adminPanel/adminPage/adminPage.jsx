@@ -19,8 +19,8 @@ const AdminPanel = () => {
 
     // Fetch all data
     useEffect(() => {
-        fetchData("/api/admin/vendors", setVendors);
-        fetchData("/api/admin/users", setUsers);
+        fetchData("https://wemprod-b.onrender.com/admin/vendors", setVendors);
+        fetchData("https://wemprod-b.onrender.com/admin/users", setUsers);
     }, []);
 
    

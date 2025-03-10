@@ -17,8 +17,8 @@ const UserBookings = () => {
   const fetchBookings = async () => {
     try {
       const [venueResponse, serviceResponse] = await Promise.all([
-        fetch(`/api/bookings/user`, { method: "GET", credentials: "include" }),
-        fetch(`/api/bookingsSer/user`, { method: "GET", credentials: "include" })
+        fetch(`https://wemprod-b.onrender.com/bookings/user`, { method: "GET", credentials: "include" }),
+        fetch(`https://wemprod-b.onrender.com/bookingsSer/user`, { method: "GET", credentials: "include" })
       ]);
   
       const venueBookings = await venueResponse.json();
@@ -50,7 +50,7 @@ const UserBookings = () => {
     };
 
     try {
-        const res = await fetch("/api/checkout", { 
+        const res = await fetch("https://wemprod-b.onrender.com/checkout", { 
             method: "POST",
             headers: {
                 'Content-Type': 'application/json'

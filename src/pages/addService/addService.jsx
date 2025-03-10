@@ -19,7 +19,7 @@ const ServiceForm = () => {
   useEffect(() => {
     const fetchProfile = async () => {
       try {
-        const res = await fetch("/api/get/vendor/profile", {
+        const res = await fetch("https://wemprod-b.onrender.com/get/vendor/profile", {
           method: "GET",
           credentials: "include", // Important for sending cookies
         });
@@ -43,7 +43,7 @@ const ServiceForm = () => {
    useEffect(() => {
       const fetchVenues = async () => {
         try {
-          const res = await fetch(`/api/get/venue/${profile.location}`);
+          const res = await fetch(`https://wemprod-b.onrender.com/get/venue/${profile.location}`);
           const data = await res.json();
           setVenues(data);
         } catch (error) {
@@ -109,7 +109,7 @@ const ServiceForm = () => {
     });
   
     try {
-      const response = await fetch("/api/add/service", {
+      const response = await fetch("https://wemprod-b.onrender.com/add/service", {
         method: "POST",
         body: formData,
       });

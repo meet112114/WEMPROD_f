@@ -24,7 +24,7 @@ const VendorLogin = () => {
     setErrorMessage(""); // Reset error message before making the request
 
     try {
-      const res = await fetch('/api/login', {
+      const res = await fetch('https://wemprod-b.onrender.com/login', {
         method: "POST",
         headers: {
           "Content-Type": "application/json"

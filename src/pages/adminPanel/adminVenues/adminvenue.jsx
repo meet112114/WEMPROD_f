@@ -10,7 +10,7 @@ const AdminVenue = () => {
 
     const fetchData = async () => {
         try {
-            const res = await fetch('/api/admin/venues', { method: "GET" });
+            const res = await fetch('https://wemprod-b.onrender.com/admin/venues', { method: "GET" });
 
             if (!res.ok) {
                 throw new Error("Failed to fetch venues");
@@ -30,7 +30,7 @@ const AdminVenue = () => {
         }
 
         try {
-            const res = await fetch(`/api/admin/venue/${venueId}`, {
+            const res = await fetch(`https://wemprod-b.onrender.com/admin/venue/${venueId}`, {
                 method: "DELETE",
             });
 
@@ -51,7 +51,7 @@ const AdminVenue = () => {
     // Function to accept a venue
     const acceptVenue = async (venueId) => {
         try {
-            const res = await fetch(`/api/admin/venue/accept/${venueId}`, {
+            const res = await fetch(`https://wemprod-b.onrender.com/admin/venue/accept/${venueId}`, {
                 method: "PUT",
                 headers: {
                     "Content-Type": "application/json",

@@ -6,7 +6,7 @@ const AdminBookings = () => {
 
   const fetchData = async () => {
     try {
-      const res = await fetch("/api/admin/bookings", { method: "GET" });
+      const res = await fetch("https://wemprod-b.onrender.com/admin/bookings", { method: "GET" });
 
       if (!res.ok) {
         throw new Error("Failed to fetch bookings");
@@ -37,7 +37,7 @@ const AdminBookings = () => {
       return;
 
     try {
-      const res = await fetch(`/api/admin/update/booking/${bookingId}`, {
+      const res = await fetch(`https://wemprod-b.onrender.com/admin/update/booking/${bookingId}`, {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ status }),

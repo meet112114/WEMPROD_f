@@ -13,7 +13,7 @@ const VendorHome = () => {
   useEffect(() => {
     const fetchProfile = async () => {
       try {
-        const res = await fetch("/api/get/vendor/profile", {
+        const res = await fetch("https://wemprod-b.onrender.com/get/vendor/profile", {
           method: "GET",
           credentials: "include",
         });
@@ -33,7 +33,7 @@ const VendorHome = () => {
   useEffect(() => {
     const fetchVenues = async () => {
       try {
-        const res = await fetch("/api/get/vendors/venues", {
+        const res = await fetch("https://wemprod-b.onrender.com/get/vendors/venues", {
           method: "GET",
           credentials: "include",
         });
@@ -49,7 +49,7 @@ const VendorHome = () => {
   useEffect(() => {
     const fetchServices = async () => {
       try {
-        const res = await fetch("/api/get/vendors/services", {
+        const res = await fetch("https://wemprod-b.onrender.com/get/vendors/services", {
           method: "GET",
           credentials: "include",
         });
@@ -66,14 +66,14 @@ const VendorHome = () => {
     const fetchBookings = async () => {
         try {
             // Fetch venue bookings
-            const venueRes = await fetch("/api/bookings/vendor", {
+            const venueRes = await fetch("https://wemprod-b.onrender.com/bookings/vendor", {
                 method: "GET",
                 credentials: "include",
             });
             const venueData = await venueRes.json();
 
             // Fetch service bookings
-            const serviceRes = await fetch("/api/bookings/vendor/services", {
+            const serviceRes = await fetch("https://wemprod-b.onrender.com/bookings/vendor/services", {
                 method: "GET",
                 credentials: "include",
             });
@@ -111,7 +111,7 @@ const VendorHome = () => {
   const handleDeleteVenue = async (inquiryId) => {
     try {
       const response = await fetch(
-        `/api/deleteVenueInquiry/${profile._id}/${inquiryId}`,
+        `httapips://wemprod-b.onrender.com/deleteVenueInquiry/${profile._id}/${inquiryId}`,
         { method: "DELETE" }
       );
 
@@ -137,7 +137,7 @@ const VendorHome = () => {
   const handleDeleteService = async (inquiryId) => {
     try {
       const response = await fetch(
-        `/api/deleteServiceInquiry/${profile._id}/${inquiryId}`,
+        `https://wemprod-b.onrender.com/deleteServiceInquiry/${profile._id}/${inquiryId}`,
         { method: "DELETE" }
       );
 
@@ -162,7 +162,7 @@ const VendorHome = () => {
 
   const handleAcceptBooking = async (bookingId) => {
     try {
-      const response = await fetch(`/api/update/booking/status/${bookingId}`, {
+      const response = await fetch(`https://wemprod-b.onrender.com/update/booking/status/${bookingId}`, {
         method: "PUT",
         credentials: "include",
         body: JSON.stringify({ status: "accepted" }),
@@ -203,7 +203,7 @@ const VendorHome = () => {
 
   const handleRejectBooking = async (bookingId) => {
     try {
-      const response = await fetch(`/api/update/booking/status/${bookingId}`, {
+      const response = await fetch(`https://wemprod-b.onrender.com/update/booking/status/${bookingId}`, {
         method: "PUT",
         credentials: "include",
         body: JSON.stringify({ status: "rejected" }),

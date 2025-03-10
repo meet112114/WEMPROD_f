@@ -7,7 +7,7 @@ const VenueCard2 = ({ name, price, vendorName, image ,description}) => {
     return (
       <div className="Venue-card">
         <div>
-        <img src={"http://localhost:5000"+image} alt={name} className="Venue-card-image" />
+        <img src={"https://wemprod-b.onrender.com"+image} alt={name} className="Venue-card-image" />
         </div>
         <div>
         <div className="Venue-card-info">

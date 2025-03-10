@@ -24,7 +24,7 @@ const Login = () => {
     setErrorMessage(""); // Reset error before request
 
     try {
-      const res = await fetch('/api/login', {
+      const res = await fetch('https://wemprod-b.onrender.com/login', {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
@@ -90,14 +90,14 @@ const Login = () => {
         </div>
 
         {/* Google Login */}
-        <div className='google-login'>
-          <a className='google-link' href="http://localhost:5000/auth/google">
+        {/* <div className='google-login'>
+          <a className='google-link' href="https://wemprod-b.onrender.com/auth/google">
             <div className='google-button'>
               <img className="google-img" src={GoogleIcon} alt="Google Icon" />
               <div className='google-text'>Sign In With Google</div>
             </div>
           </a>
-        </div>
+        </div> */}
 
         <a className='a-link' href="/register">I am not a member</a>
       </div>

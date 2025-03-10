@@ -23,7 +23,7 @@ const Register = () => {
 
   const RegisterSubmit = async (e) => {
     e.preventDefault();
-    const res = await fetch("api/register/client", {
+    const res = await fetch("https://wemprod-b.onrender.com/register/client", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

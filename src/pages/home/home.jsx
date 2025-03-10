@@ -2,7 +2,6 @@ import React, { useEffect, useState , useContext} from 'react';
 import { useNavigate } from 'react-router-dom';
 import './home.css';
 import VenueCard from '../../components/cards/venueCard';
-import ServiceTypeCard from '../../components/cards/ServiceTypeCard';
 import BGIMG from '../../assets/web-images/2.png'
 // import Img2 from '../../assets/web-images/22.png';
 
@@ -44,7 +43,7 @@ const Home = () => {
   useEffect(() => {
     const fetchVenues = async () => {
         try {
-            const res = await fetch('/api/getAllVenue', {
+            const res = await fetch('https://wemprod-b.onrender.com/getAllVenue', {
                 method: 'GET',
                 credentials: 'include',
             });
@@ -69,7 +68,7 @@ const Home = () => {
 
     const fetchServices = async () => {
         try {
-            const res = await fetch('/api/getAllService', {
+            const res = await fetch('https://wemprod-b.onrender.com/getAllService', {
                 method: 'GET',
                 credentials: 'include',
             });

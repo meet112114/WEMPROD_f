@@ -16,7 +16,7 @@ const ServiceDetails = () => {
 
     const fetchService = async () => {
         try {
-            const res = await fetch(`/api/get/servicesByID/${serviceId}`, {
+            const res = await fetch(`https://wemprod-b.onrender.com/get/servicesByID/${serviceId}`, {
                 method: "GET",
                 credentials: "include"
             });
@@ -48,7 +48,7 @@ const ServiceDetails = () => {
 
       {/* Main Image Display */}
       <img
-        src={"http://192.168.0.107:5000" + selectedImage}
+        src={"https://wemprod-b.onrender.com" + selectedImage}
         alt={service.name}
         className="service-image-s"
       />
@@ -58,7 +58,7 @@ const ServiceDetails = () => {
         {service.images.map((img, index) => (
           <img
             key={index}
-            src={"http://192.168.0.107:5000" + img}
+            src={"https://wemprod-b.onrender.com" + img}
             alt="Service Thumbnail"
             className="thumbnail"
             onClick={() => setSelectedImage(img)}
