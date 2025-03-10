@@ -12,22 +12,23 @@ const VendorHome = () => {
 
   useEffect(() => {
     const fetchProfile = async () => {
-        const token = localStorage.getItem('jwtoken');
-    console.log(token)
-    if (!token) {
-        throw new Error('No token found, please log in again.');
-    }
+      const token = localStorage.getItem("jwtoken");
+      console.log(token);
+  
+      if (!token) {
+        throw new Error("No token found, please log in again.");
+      }
+  
       try {
         const res = await fetch("https://wemprod-b.onrender.com/get/vendor/profile", {
-        const res = await fetch("https://wemprod-b.onrender.com/get/vendor/profile", {
           method: "GET",
-                headers: {
-        "Authorization": `Bearer ${token}`,
-        "Content-Type": "application/json"
-      },
-
-          credentials:"include"
+          headers: {
+            Authorization: `Bearer ${token}`,
+            "Content-Type": "application/json",
+          },
+          credentials: "include",
         });
+  
         if (res.status === 200) {
           const data = await res.json();
           setProfile(data);
@@ -38,9 +39,10 @@ const VendorHome = () => {
         console.error("Error fetching profile:", error);
       }
     };
+  
     fetchProfile();
   }, []);
-
+  
   useEffect(() => {
     const fetchVenues = async () => {
 
