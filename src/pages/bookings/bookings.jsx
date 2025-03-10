@@ -8,6 +8,7 @@ const UserBookings = () => {
   const  {state , dispatch} = useContext( UserContext);
   const [bookings, setBookings] = useState([]);
   const [loading, setLoading] = useState(true);
+      const token = localStorage.getItem('jwtoken');
   
 
   useEffect(() => {
@@ -87,7 +88,7 @@ const UserBookings = () => {
   {loading ? (
     <p>Loading bookings...</p>
   ) : bookings.length === 0 ? (
-    <p>No bookings found.</p>
+    <p>No bookings found {token}.</p>
   ) : (
     <div className="bookings-list">
       {/* Show Venue Bookings First */}
