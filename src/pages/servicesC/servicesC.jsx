@@ -118,6 +118,8 @@ const ServicesC = () => {
       </div>
 
       {/* Services List */}
+      <div className="sss">
+
       <div className="servicesC-list">
       <CitySelector/>
         {filteredServices.length > 0 ? (
@@ -134,6 +136,7 @@ const ServicesC = () => {
         ) : (
           <p>No services found</p>
         )}
+      </div>
       </div>
     </div>
   );
