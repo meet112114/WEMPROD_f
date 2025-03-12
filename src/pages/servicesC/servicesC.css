@@ -17,28 +17,32 @@
     display: flex;
     flex-direction: column;
   }
-  
-  .servicesC-list {
+
+  .sss{
     width: 80%;
     height: 1200px;
     max-height: 650px;
     overflow-y: auto;
     overflow-x: hidden; 
+    padding: 20px;
+    scrollbar-width: none;
+  }
+
+  .servicesC-list {
+    height: 1200px;
+    max-height: 650px;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 60px;
-    padding: 20px;
-    padding-left: 60px;
     border-radius: 10px;
-    margin-left: 35px;
     background-color: rgba(255, 255, 255, .35);  
     backdrop-filter: blur(5px);
     padding-top: 50px;
-    scrollbar-width: none;
     margin-top: 10px;
     justify-content: center;
     justify-items: center;
   }
+  
   
   /* Hide default radio */
   input[type="radio"] {
