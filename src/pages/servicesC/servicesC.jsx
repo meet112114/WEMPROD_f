@@ -119,9 +119,8 @@ const ServicesC = () => {
 
       {/* Services List */}
       <div className="sss">
-
-      <div className="servicesC-list">
       <CitySelector/>
+      <div className="servicesC-list">
         {filteredServices.length > 0 ? (
           filteredServices.map((service) => (
             <div key={service._id} onClick={() => navigate(`/servicePage/${service._id}`)}>
