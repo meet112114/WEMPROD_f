@@ -133,8 +133,10 @@ const VenuesC = () => {
     
 
       {/* Venue List */}
+      <div className="vvv"> 
+                <CitySelector/>
       <div className="venueC-list">
-        <CitySelector/>
+
         {filteredVenues.length > 0 ? (
           filteredVenues.map((venue) => (
             <div key={venue._id} onClick={() => navigate(`/venuePage/${venue._id}`)}>
@@ -150,6 +152,7 @@ const VenuesC = () => {
           <p>No venues found</p>
         )}
       </div>
+        </div>
     </div>
   );
 };
