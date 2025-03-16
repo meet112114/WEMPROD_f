@@ -45,9 +45,9 @@ const VendorHome = () => {
   
   useEffect(() => {
     const fetchVenues = async () => {
-
-    const token = localStorage.getItem('jwtoken');
-    console.log(token)
+    const token = localStorage.getItem("jwtoken");
+      console.log(token);
+      
     if (!token) {
         throw new Error('No token found, please log in again.');
     }
@@ -56,6 +56,10 @@ const VendorHome = () => {
         const res = await fetch("https://wemprod-b.onrender.com/get/vendors/venues", {
           method: "GET",
           credentials: "include",
+           headers: {
+            Authorization: `Bearer ${token}`,
+            "Content-Type": "application/json",
+          },
         });
         const data = await res.json();
         setVenues(data);
@@ -74,6 +78,10 @@ const VendorHome = () => {
         const res = await fetch("https://wemprod-b.onrender.com/get/vendors/services", {
           method: "GET",
           credentials: "include",
+           headers: {
+            Authorization: `Bearer ${token}`,
+            "Content-Type": "application/json",
+          },
         });
         const data = await res.json();
         setServices(data);
@@ -138,7 +146,7 @@ const VendorHome = () => {
     }
     try {
       const response = await fetch(
-        `httapips://wemprod-b.onrender.com/deleteVenueInquiry/${profile._id}/${inquiryId}`,
+        `https://wemprod-b.onrender.com/deleteVenueInquiry/${profile._id}/${inquiryId}`,
         { method: "DELETE" }
       );
 
