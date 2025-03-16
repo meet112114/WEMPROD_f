@@ -33,7 +33,7 @@ const ServicesC = () => {
     };
 
     fetchServices();
-  }, []);
+  }, [location]);
 
   // Handle filter changes
   const handleFilterChange = (e) => {
