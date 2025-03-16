@@ -1,10 +1,12 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect , useContext} from 'react';
 import ServiceTypeCard from '../../components/cards/ServiceTypeCard';
 import './servicesC.css';
 import { useNavigate } from 'react-router-dom';
 import CitySelector from "../../components/locationCard/locationCard";
 
 const ServicesC = () => {
+    const { state, dispatch } = useContext(UserContext);
+  const { location } = state;
   const navigate = useNavigate();
   const [services, setServices] = useState([]); // All services
   const [filteredServices, setFilteredServices] = useState([]); // Filtered services
@@ -18,7 +20,10 @@ const ServicesC = () => {
       try {
         const res = await fetch('https://wemprod-b.onrender.com/getAllService'); 
         const data = await res.json();
-        const acceptedServices = data.filter(service => service.status === "accepted");
+        let acceptedServices = data.filter(service => service.status === "accepted");
+        if (location) {
+          acceptedServices = acceptedServices.filter(service => service.location.toLowerCase() === location.toLowerCase());
+        }
         setServices(acceptedServices);
         setFilteredServices(data); 
       } catch (error) {
