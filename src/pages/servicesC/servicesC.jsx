@@ -3,6 +3,7 @@ import ServiceTypeCard from '../../components/cards/ServiceTypeCard';
 import './servicesC.css';
 import { useNavigate } from 'react-router-dom';
 import CitySelector from "../../components/locationCard/locationCard";
+import { UserContext } from '../../App'; 
 
 const ServicesC = () => {
     const { state, dispatch } = useContext(UserContext);
