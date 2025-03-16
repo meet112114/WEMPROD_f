@@ -92,6 +92,8 @@ const VendorHome = () => {
 
   useEffect(() => {
     const fetchBookings = async () => {
+      const token = localStorage.getItem('jwtoken');
+    console.log(token)
         try {
             // Fetch venue bookings
             const venueRes = await fetch("https://wemprod-b.onrender.com/bookings/vendor", {
