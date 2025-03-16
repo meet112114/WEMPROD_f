@@ -3,7 +3,7 @@ import VenueCard from '../../components/cards/venueCard';
 import './venuesC.css';
 import { useNavigate } from 'react-router-dom';
 import CitySelector from "../../components/locationCard/locationCard";
-
+import { UserContext } from '../../App'; 
 const VenuesC = () => {
   const { state, dispatch } = useContext(UserContext);
   const { location } = state;
