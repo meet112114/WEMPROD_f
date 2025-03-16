@@ -55,7 +55,6 @@ const VendorHome = () => {
       try {
         const res = await fetch("https://wemprod-b.onrender.com/get/vendors/venues", {
           method: "GET",
-          credentials: "include",
            headers: {
             Authorization: `Bearer ${token}`,
             "Content-Type": "application/json",
@@ -77,7 +76,6 @@ const VendorHome = () => {
       try {
         const res = await fetch("https://wemprod-b.onrender.com/get/vendors/services", {
           method: "GET",
-          credentials: "include",
            headers: {
             Authorization: `Bearer ${token}`,
             "Content-Type": "application/json",
@@ -98,14 +96,20 @@ const VendorHome = () => {
             // Fetch venue bookings
             const venueRes = await fetch("https://wemprod-b.onrender.com/bookings/vendor", {
                 method: "GET",
-                credentials: "include",
+               headers: {
+            Authorization: `Bearer ${token}`,
+            "Content-Type": "application/json",
+          },
             });
             const venueData = await venueRes.json();
 
             // Fetch service bookings
             const serviceRes = await fetch("https://wemprod-b.onrender.com/bookings/vendor/services", {
                 method: "GET",
-                credentials: "include",
+                headers: {
+            Authorization: `Bearer ${token}`,
+            "Content-Type": "application/json",
+          },
             });
             const serviceData = await serviceRes.json();
 
