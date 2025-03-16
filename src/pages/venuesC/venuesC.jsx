@@ -1,10 +1,12 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect , useContext} from 'react';
 import VenueCard from '../../components/cards/venueCard';
 import './venuesC.css';
 import { useNavigate } from 'react-router-dom';
 import CitySelector from "../../components/locationCard/locationCard";
 
 const VenuesC = () => {
+  const { state, dispatch } = useContext(UserContext);
+  const { location } = state;
   const navigate = useNavigate();
   const [venues, setVenues] = useState([]); // All venues
   const [filteredVenues, setFilteredVenues] = useState([]); // Filtered venues
@@ -20,7 +22,10 @@ const VenuesC = () => {
       try {
         const res = await fetch('https://wemprod-b.onrender.com/getAllVenue');
         const data = await res.json();
-        const acceptedVenues = data.filter(venue => venue.status === "accepted");
+        let acceptedVenues = data.filter(venue => venue.status === "accepted");
+        if (location) {
+          acceptedVenues = acceptedVenues.filter(venue => venue.location.toLowerCase() === location.toLowerCase());
+      }
         setVenues(acceptedVenues);
         setFilteredVenues(acceptedVenues); // Initialize with accepted venues
       } catch (error) {
