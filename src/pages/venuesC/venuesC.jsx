@@ -34,7 +34,7 @@ const VenuesC = () => {
     };
 
     fetchVenues();
-  }, []);
+  }, [location]);
 
   const handleFilterChange = (e) => {
     const { name, value, type, checked } = e.target;
