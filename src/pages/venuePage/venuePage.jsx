@@ -79,6 +79,10 @@ const VenuePage = () => {
   const handleInquirySubmit = async (e) => {
     e.preventDefault();
     setInquiryStatus("Submitting...");
+     const token = localStorage.getItem("jwtoken");
+      if (!token) {
+        throw new Error("No token found, please log in again.");
+      }
 
     try {
       const response = await fetch("https://wemprod-b.onrender.com/add/venue/inquiry", {
@@ -108,6 +112,10 @@ const VenuePage = () => {
   
 
   const handleBookNow = async () => {
+     const token = localStorage.getItem("jwtoken");
+      if (!token) {
+        throw new Error("No token found, please log in again.");
+      }
     if (!user) {
       alert("Please log in first to book a venue.");
       navigate("/login");  // Redirect user to login page
