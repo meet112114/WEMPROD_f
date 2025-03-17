@@ -64,7 +64,9 @@ const ServicePage = () => {
     try {
       const response = await fetch("https://wemprod-b.onrender.com/add/service/inquiry", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: { 
+           Authorization: `Bearer ${token}`,
+          "Content-Type": "application/json" },
         body: JSON.stringify({
           serviceId: serviceId,
           serviceName: service.name,
@@ -110,7 +112,9 @@ const ServicePage = () => {
     try {
       const response = await fetch("https://wemprod-b.onrender.com/add/booking/service", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: { 
+           Authorization: `Bearer ${token}`,
+          "Content-Type": "application/json" },
         credentials:"include",
         body: JSON.stringify({
           name: bookingData.name,
