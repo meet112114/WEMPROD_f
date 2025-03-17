@@ -83,7 +83,9 @@ const VenuePage = () => {
     try {
       const response = await fetch("https://wemprod-b.onrender.com/add/venue/inquiry", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: { 
+           Authorization: `Bearer ${token}`,
+          "Content-Type": "application/json" },
         body: JSON.stringify({ venueId: id, venueName:venue.name , vendorId:venue.vendorId , ...inquiry })
       });
 
@@ -122,7 +124,9 @@ const VenuePage = () => {
     try {
       const response = await fetch("https://wemprod-b.onrender.com/add/booking/venue", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+  headers: { 
+           Authorization: `Bearer ${token}`,
+          "Content-Type": "application/json" },
         body: JSON.stringify({
           name : bookingData.name,
           venueId: id,
