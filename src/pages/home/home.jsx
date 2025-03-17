@@ -181,7 +181,7 @@ const handleOutfitClick = (outfitId) => {
     backgroundSize: "cover",
     backgroundRepeat: "no-repeat",
   }} onClick={() => handleNavigate('/ServicesCat/makeup')}>
-    <p className='hcs-div-title'>Makep</p>
+    <p className='hcs-div-title'>Makeup</p>
   </div>
 
   <div className='hcs-div' style={{
