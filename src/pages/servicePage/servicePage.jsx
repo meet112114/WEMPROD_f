@@ -60,6 +60,12 @@ const ServicePage = () => {
   const handleInquirySubmit = async (e) => {
     e.preventDefault();
     setInquiryStatus("Submitting...");
+          const token = localStorage.getItem("jwtoken");
+      if (!token) {
+        throw new Error("No token found, please log in again.");
+      }
+  
+
 
     try {
       const response = await fetch("https://wemprod-b.onrender.com/add/service/inquiry", {
@@ -94,6 +100,10 @@ const ServicePage = () => {
   };
 
   const handleBookNow = async () => {
+     const token = localStorage.getItem("jwtoken");
+      if (!token) {
+        throw new Error("No token found, please log in again.");
+      }
     if (!user) {
       alert("Please log in first to book a service.");
       navigate("/login");
