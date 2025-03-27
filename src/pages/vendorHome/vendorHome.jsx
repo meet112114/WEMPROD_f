@@ -204,13 +204,14 @@ const VendorHome = () => {
 
   const handleAcceptBooking = async (bookingId) => {
     try {
+            const token = localStorage.getItem('jwtoken');
       const response = await fetch(`https://wemprod-b.onrender.com/update/booking/status/${bookingId}`, {
         method: "PUT",
-        credentials: "include",
+         headers: {
+            Authorization: `Bearer ${token}`,
+            "Content-Type": "application/json",
+          },
         body: JSON.stringify({ status: "accepted" }),
-        headers: {
-          "Content-Type": "application/json",
-        },
       });
 
       if (!response.ok) {
@@ -244,14 +245,15 @@ const VendorHome = () => {
   };
 
   const handleRejectBooking = async (bookingId) => {
+          const token = localStorage.getItem('jwtoken');
     try {
       const response = await fetch(`https://wemprod-b.onrender.com/update/booking/status/${bookingId}`, {
         method: "PUT",
-        credentials: "include",
         body: JSON.stringify({ status: "rejected" }),
         headers: {
-          "Content-Type": "application/json",
-        },
+            Authorization: `Bearer ${token}`,
+            "Content-Type": "application/json",
+          },
       });
   
       if (!response.ok) {
