@@ -50,7 +50,7 @@ const UserBookings = () => {
     // Define the correct object
     const bookingDetails = {
         bookingId: booking._id,
-        venueId: booking.venueId,
+        productId: booking.venueId || booking.ServiceId,
         vendorId: booking.vendorId,   // Get from booking
         price: booking.payment.amount, // Get actual price from booking
         currency: "inr",
