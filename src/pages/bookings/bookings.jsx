@@ -49,6 +49,7 @@ const UserBookings = () => {
 
     // Define the correct object
     const bookingDetails = {
+        bookingId: booking._id,
         venueId: booking.venueId,
         vendorId: booking.vendorId,   // Get from booking
         price: booking.payment.amount, // Get actual price from booking
