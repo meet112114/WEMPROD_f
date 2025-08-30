@@ -1,4 +1,4 @@
-/* .home-top-img-div{
+.home-top-img-div{
   margin-top: 20px;
     width: 100%;
     
@@ -316,29 +316,22 @@
   font-style: italic;
   font-family: fantasy;
   padding-left: 50px;
-} */
+} 
 
-/* 📱 Mobile Responsive Styles */
+/* 📱 Mobile Styles */
 @media (max-width: 768px) {
-  /* Top Image */
   .home-top-img-image {
     height: 30vh;
   }
 
-  /* Venue Section */
   .home-C-venue {
     width: 95%;
     margin-top: 50px;
   }
 
   .home-C-venue-top {
-    flex-direction: column; /* Stack text + image */
+    flex-direction: column;
     align-items: center;
-  }
-
-  .home-C-venue-top-text {
-    height: auto;
-    padding: 10px;
   }
 
   .top-venue-text-1 {
@@ -350,9 +343,9 @@
   }
 
   .home-C-venue-top-img {
-    height: auto;
     width: 100%;
-    margin-top: 20px;
+    height: auto;
+    margin-top: 15px;
   }
 
   .home-C-venue-top-image-image {
@@ -365,12 +358,6 @@
     gap: 15px;
   }
 
-  .home-C-venue-bottom-button {
-    margin: 15px auto;
-    padding: 8px 16px;
-  }
-
-  /* Service Category */
   .service-category {
     width: 95%;
     margin-top: 30px;
@@ -379,29 +366,16 @@
 
   .service-category-title {
     font-size: 28px;
-    margin-left: 10px;
+    margin-left: 0;
     text-align: center;
   }
 
-  .service-category-button {
-    margin-right: 0;
-    margin-top: 10px;
-  }
-
-  /* Services Section */
   .home-services-section {
     flex-direction: column;
     text-align: center;
     margin-top: 80px;
   }
 
-  .footer-sec-1,
-  .footer-sec-2 {
-    text-align: center;
-    min-width: 100%;
-  }
-
-  /* Categories Section */
   .home-categories-sec {
     flex-direction: column;
     gap: 20px;
@@ -413,12 +387,6 @@
     height: 120px;
   }
 
-  .home-categories-sec-title {
-    font-size: 24px;
-    margin-top: 50px;
-  }
-
-  /* hcs-div */
   .hcs-div {
     width: 90%;
     height: auto;
@@ -430,7 +398,6 @@
     padding-left: 10px;
   }
 
-  /* Splash screen text scaling */
   .L1, .L3 {
     font-size: 20px;
   }
@@ -444,15 +411,19 @@
   .top-venue-text-1 {
     font-size: 28px;
   }
+
   .top-venue-text-2 {
     font-size: 20px;
   }
+
   .service-category-title {
     font-size: 22px;
   }
+
   .home-categories-sec-img {
     height: 100px;
   }
+
   .hcs-div-title {
     font-size: 18px;
   }
